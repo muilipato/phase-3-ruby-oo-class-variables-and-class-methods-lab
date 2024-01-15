@@ -7,6 +7,7 @@ class Song
   @@artists = []
   @@genre_count = {}
   @@artist_count = {}
+  @@all = []
 
 
   def initialize name , artist, genre
@@ -23,7 +24,7 @@ class Song
     @@artist_count[@artist] ||= 0
     @@artist_count[@artist] +=1
 
-
+    @@all << self
   end
 
   def self.count
@@ -44,5 +45,20 @@ class Song
   def self.artist_count
     @@artist_count
   end
+  def self.all
+    @@all
+  end
+
+  def self.print_all_songs
+    self.all.each do |song|
+      puts song.name
+      song.name
+    end
+  end
+
 end
+s1= Song.new "nonstop" , "drake" ,"Hip-Hop"
+s2 = Song.new "my love", "the weeknd", "pop"
+s3 = Song.new "here we lie", "drake", "Hip-hop"
+
 binding.pry
